@@ -7,7 +7,13 @@
       "WebFetch(domain:stefanzweifel.dev)",
       "WebFetch(domain:acharyashailesh.com.np)",
       "WebFetch(domain:gatsby-medium.vercel.app)",
-      "WebSearch"
+      "WebSearch",
+      "WebFetch(domain:nexxel.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx create-react-router@latest . --yes --template https://github.com/remix-run/react-router-templates/tree/main/default)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
