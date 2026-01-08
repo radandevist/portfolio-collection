@@ -282,66 +282,23 @@ Starting with Phase 1 - Identity & Branding...
 
 ## Quick Start
 
-1. **Copy everything** inside the code block above (including the XML-style tags)
+1. **Copy everything** inside the code block above
 2. **Paste into your AI assistant** (Claude, GPT-4, Cursor, etc.)
 3. **Answer the questions** as the AI asks them
-4. **Review the summary** and make any adjustments
-5. **Confirm** and let it build
+4. **Review the summary** and confirm
+5. **Let it build**
 
 ---
 
-## What Makes This Prompt Effective
-
-| Technique | Purpose |
-|-----------|---------|
-| `<system>` tag | Sets AI role and critical constraints |
-| `<context>` tag | Provides fixed requirements upfront |
-| Phased questions | Prevents overwhelm, logical flow |
-| Multiple choice + open | Guides while allowing customization |
-| `<instructions_for_ai>` | Clear deliverables and quality bar |
-| `<design_references>` | Concrete examples for each style |
-| `<begin>` tag | Explicit trigger to start interaction |
-
----
-
-## All Decision Points Summary
+## All 29 Decision Points
 
 | Phase | Questions | Covers |
 |-------|-----------|--------|
 | 1. Identity | 1-4 | Name, title, tagline, voice |
-| 2. Content | 5-7 | Sections, project display, blog features |
-| 3. Visual | 8-11 | Aesthetic, colors, typography, visual elements |
-| 4. Interaction | 12-14 | Animations, effects, interactive features |
-| 5. Navigation | 15-19 | Structure, header, mobile nav, footer |
-| 6. Content Details | 20-23 | Hero, cards, timeline, skills display |
+| 2. Content | 5-7 | Sections, projects, blog |
+| 3. Visual | 8-11 | Aesthetic, colors, typography, elements |
+| 4. Interaction | 12-14 | Animations, effects, features |
+| 5. Navigation | 15-19 | Structure, header, mobile, footer |
+| 6. Content Details | 20-23 | Hero, cards, timeline, skills |
 | 7. Personal | 24-26 | Easter eggs, social proof, contact |
 | 8. Technical | 27-29 | SEO, performance, accessibility |
-
-**Total: 29 decision points across 8 phases**
-
----
-
-## Pro Tips
-
-- **Don't skip phases** - Each builds on the previous
-- **Be specific** - "Amber #fbbf24" beats "warm yellow"
-- **Reference examples** - "Like X but with Y" is powerful
-- **Say "surprise me"** - Let the AI decide if you're unsure
-- **Iterate** - After v1, ask for specific changes
-
----
-
-## Current Implementation (This Branch)
-
-Branch: `portfolio/warm-terminal-v1`
-
-| Phase | Choice |
-|-------|--------|
-| Identity | iamradan, Full-Stack Developer, no tagline, Technical voice |
-| Content | Home, Blog, Projects, Experience, Skills |
-| Visual | Warm & Cozy (C), #1f1f1f bg, amber/coral accents, Geist Mono |
-| Interaction | Rich (A), typing effects, terminal prompts, card hover |
-| Navigation | Multi-page (A), sticky header, hamburger mobile |
-| Content | Terminal hero, badge cards, color-cycling timeline |
-| Personal | ASCII 404, no easter eggs |
-| Technical | Basic SEO, reduced motion support |

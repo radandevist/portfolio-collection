@@ -1,0 +1,60 @@
+---
+title: "Hello World - Building This Portfolio"
+description: "A look behind the scenes at how I built this minimalist portfolio with React Router v7, TailwindCSS, and MDX."
+date: "2024-01-15"
+tags: ["react", "tailwindcss", "portfolio"]
+published: true
+---
+
+Welcome to my blog! This is my first post, and I thought it would be fitting to share how I built this portfolio website.
+
+## The Tech Stack
+
+I wanted something modern, fast, and maintainable. Here's what I landed on:
+
+- **React Router v7** - Framework mode with SSR
+- **TailwindCSS** - For styling with a custom warm dark theme
+- **MDX** - For writing blog posts with React components
+- **TypeScript** - Because type safety is non-negotiable
+
+## The Design Philosophy
+
+I drew inspiration from several portfolios I admire, combining elements of terminal aesthetics with a warm, cozy dark theme. The goal was to create something that felt both professional and personal.
+
+> "Simplicity is the ultimate sophistication." - Leonardo da Vinci
+
+### Key Design Decisions
+
+1. **Monospace Typography** - Using Geist Mono throughout gives the site a code-editor feel
+2. **Warm Color Palette** - Amber, coral, and rose accents against a dark background
+3. **Terminal Elements** - ASCII art, command prompts, and typing animations
+4. **Mobile-First** - Every component was designed to work well on small screens
+
+## The Code
+
+Here's a quick look at how the typing animation works:
+
+```typescript
+const [displayText, setDisplayText] = useState("");
+const [currentIndex, setCurrentIndex] = useState(0);
+
+useEffect(() => {
+  if (currentIndex < text.length) {
+    const timeout = setTimeout(() => {
+      setDisplayText(prev => prev + text[currentIndex]);
+      setCurrentIndex(prev => prev + 1);
+    }, speed);
+    return () => clearTimeout(timeout);
+  }
+}, [currentIndex, text, speed]);
+```
+
+## What's Next?
+
+I plan to write more about:
+
+- Web development tips and tricks
+- Deep dives into interesting problems I've solved
+- Thoughts on software architecture and best practices
+
+Thanks for reading! If you have any questions or feedback, feel free to reach out.

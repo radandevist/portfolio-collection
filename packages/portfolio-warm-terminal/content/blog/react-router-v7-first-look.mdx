@@ -1,0 +1,69 @@
+---
+title: "React Router v7: A Developer's First Look"
+description: "Exploring the new features in React Router v7 framework mode, including file-based routing, SSR, and more."
+date: "2024-01-10"
+tags: ["react", "react-router", "javascript"]
+published: true
+---
+
+React Router v7 brings some exciting changes that blur the lines between traditional client-side routing and full-stack frameworks. Let's dive in!
+
+## What's New in v7?
+
+React Router v7 introduces "framework mode" - a paradigm shift that adds server-side rendering, data loading, and more to the familiar routing library.
+
+### File-Based Routing
+
+One of the most significant changes is the optional file-based routing system:
+
+```
+app/
+├── routes/
+│   ├── home.tsx          # /
+│   ├── blog._index.tsx   # /blog
+│   ├── blog.$slug.tsx    # /blog/:slug
+│   └── projects.tsx      # /projects
+```
+
+### Data Loading
+
+Routes can now export `loader` functions for server-side data fetching:
+
+```typescript
+export async function loader({ params }: Route.LoaderArgs) {
+  const post = await getPost(params.slug);
+  return { post };
+}
+
+export default function Post({ loaderData }: Route.ComponentProps) {
+  const { post } = loaderData;
+  return <article>{post.content}</article>;
+}
+```
+
+## Migration from v6
+
+If you're coming from React Router v6, the migration path is straightforward for basic routing. The main changes come when you want to adopt framework features.
+
+### Key Differences
+
+| Feature | v6 | v7 Framework Mode |
+|---------|----|--------------------|
+| SSR | Manual setup | Built-in |
+| Data loading | useEffect | loader functions |
+| Routing | Code-based | File-based (optional) |
+
+## Should You Upgrade?
+
+**Yes**, if you're:
+- Starting a new project
+- Looking for built-in SSR support
+- Want a simpler data loading pattern
+
+**Maybe wait**, if you're:
+- Happy with your current setup
+- Have a large, stable codebase
+
+## Conclusion
+
+React Router v7 is a solid evolution of the library. The framework mode is optional, so you can adopt features incrementally. I'm excited to see where this goes!
