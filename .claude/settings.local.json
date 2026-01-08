@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:angelaluk.com)",
+      "WebFetch(domain:ankushkhairnar.vercel.app)",
+      "WebFetch(domain:www.nexxel.dev)",
+      "WebFetch(domain:stefanzweifel.dev)",
+      "WebFetch(domain:acharyashailesh.com.np)",
+      "WebFetch(domain:gatsby-medium.vercel.app)",
+      "WebSearch"
+    ]
+  }
+}
