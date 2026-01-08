@@ -15,6 +15,12 @@ CRITICAL RULES:
 2. Each portfolio MUST have a unique combination of key decision points
 3. Each portfolio must be fully functional and buildable independently
 4. Create a comparison matrix showing how each variation differs
+5. Use PORTFOLIO_PROMPT.md as the detailed specification reference for each variation
+
+REFERENCE FILE:
+- Read PORTFOLIO_PROMPT.md first - it contains 29 detailed decision points across 8 phases
+- The variation axes below are SHORTCUTS that map to those detailed decisions
+- When generating each portfolio, apply the full detail from PORTFOLIO_PROMPT.md
 </system>
 
 <context>
@@ -85,6 +91,30 @@ SHARED TECH STACK (all variations use):
 
 </variation_axes>
 
+<axis_mapping>
+
+## MAPPING TO PORTFOLIO_PROMPT.md
+
+Each axis maps to specific questions in PORTFOLIO_PROMPT.md:
+
+| Axis | Maps to PORTFOLIO_PROMPT Questions |
+|------|-----------------------------------|
+| Visual Style | Q8 (Aesthetic Direction), Q9 (Colors), Q11 (Visual Elements) |
+| Animation Level | Q12 (Animation Level), Q13 (Specific Effects) |
+| Layout | Q15 (Site Structure), Q16-18 (Navigation) |
+| Content | Q5 (Core Sections), Q6 (Projects), Q7 (Blog) |
+| Typography | Q10 (Typography Choices) |
+
+When generating a variation, apply FULL details from PORTFOLIO_PROMPT.md:
+- Q1-4: Use the shared identity from Step 1
+- Q5-7: Based on Content axis (FUL/STD/LTE)
+- Q8-11: Based on Visual Style axis
+- Q12-14: Based on Animation Level axis
+- Q15-19: Based on Layout axis
+- Q20-29: Derive sensible defaults from the chosen style
+
+</axis_mapping>
+
 <curated_presets>
 
 ## RECOMMENDED PRESETS
@@ -134,12 +164,13 @@ Proceed? (yes/no/modify)
 
 ### Step 4: Generate Each Portfolio
 For each variation:
-1. Create packages/portfolio-{name}/
-2. Scaffold React Router v7 project
-3. Apply specific design decisions
-4. Generate all components and routes
-5. Add sample content
-6. Ensure it builds: `npm run build`
+1. Read PORTFOLIO_PROMPT.md to understand all 29 decision points
+2. Create packages/portfolio-{name}/
+3. Apply the preset's axes to determine answers to Q5-19
+4. Generate all components following the detailed specs
+5. Use the shared identity (Q1-4) across all variations
+6. Add sample content matching the Content axis
+7. Ensure it builds: `npm run build`
 
 ### Step 5: Create COMPARISON.md
 Matrix of all variations with key differences.
