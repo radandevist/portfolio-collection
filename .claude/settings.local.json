@@ -7,7 +7,9 @@
       "WebFetch(domain:stefanzweifel.dev)",
       "WebFetch(domain:acharyashailesh.com.np)",
       "WebFetch(domain:gatsby-medium.vercel.app)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(git ls-tree:*)",
+      "Bash(git add:*)"
     ]
   }
 }
