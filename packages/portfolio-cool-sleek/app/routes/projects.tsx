@@ -4,33 +4,26 @@ import { projects } from "~/data/projects";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Projects | " + siteConfig.name },
+    { title: "Projects // " + siteConfig.name },
     { name: "description", content: "Projects by " + siteConfig.name },
   ];
 };
 
 export default function Projects() {
   return (
-    <div className="max-w-5xl mx-auto px-6 py-16">
+    <div className="max-w-4xl mx-auto px-6 py-16">
       <header className="mb-12">
-        <p className="text-[--color-text-muted] mb-2">$ ls -la ~/projects</p>
-        <h1 className="text-4xl font-bold text-[--color-accent]">Projects</h1>
+        <p className="text-[--color-cyan] text-sm mb-2">// work</p>
+        <h1 className="text-3xl font-bold">Projects</h1>
       </header>
 
-      <div className="grid gap-6 stagger">
+      <div className="space-y-4">
         {projects.map((project) => (
           <article key={project.title} className="card group">
-            <div className="flex items-start justify-between mb-3">
-              <div className="flex items-center gap-3">
-                <h2 className="text-xl font-semibold text-[--color-accent] group-hover:text-[--color-accent-hover]">
-                  {project.title}
-                </h2>
-                {project.featured && (
-                  <span className="px-2 py-0.5 text-xs bg-[--color-accent]/20 text-[--color-accent] rounded">
-                    featured
-                  </span>
-                )}
-              </div>
+            <div className="flex items-start justify-between mb-2">
+              <h2 className="text-lg font-semibold text-[--color-text] group-hover:text-[--color-cyan] transition-colors">
+                {project.title}
+              </h2>
               <span className="text-sm text-[--color-text-dim]">{project.year}</span>
             </div>
             
@@ -50,7 +43,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="link"
                 >
-                  GitHub &rarr;
+                  source
                 </a>
               )}
               {project.demo && (
@@ -60,7 +53,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="link"
                 >
-                  Live Demo &rarr;
+                  demo
                 </a>
               )}
             </div>

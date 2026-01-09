@@ -5,7 +5,7 @@ export interface Experience {
   startDate: string;
   endDate: string | null;
   description: string[];
-  type: "work" | "education" | "freelance";
+  type: "work" | "education";
 }
 
 export const experiences: Experience[] = [
@@ -16,9 +16,9 @@ export const experiences: Experience[] = [
     startDate: "2022-01",
     endDate: null,
     description: [
-      "Led development of core platform features serving 100k+ users",
-      "Architected microservices infrastructure reducing latency by 40%",
-      "Mentored junior developers and conducted code reviews",
+      "Led development of core platform features",
+      "Architected microservices infrastructure",
+      "Mentored junior developers",
     ],
     type: "work",
   },
@@ -29,9 +29,9 @@ export const experiences: Experience[] = [
     startDate: "2020-03",
     endDate: "2021-12",
     description: [
-      "Built real-time collaboration features using WebSocket",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Developed RESTful APIs consumed by mobile and web clients",
+      "Built real-time collaboration features",
+      "Implemented CI/CD pipelines",
+      "Developed RESTful APIs",
     ],
     type: "work",
   },
@@ -42,9 +42,8 @@ export const experiences: Experience[] = [
     startDate: "2018-06",
     endDate: "2020-02",
     description: [
-      "Developed responsive web applications for various clients",
-      "Collaborated with design team to implement pixel-perfect UIs",
-      "Maintained and improved legacy codebases",
+      "Developed responsive web applications",
+      "Collaborated with design team",
     ],
     type: "work",
   },
@@ -54,10 +53,7 @@ export const experiences: Experience[] = [
     location: "Boston, MA",
     startDate: "2014-09",
     endDate: "2018-05",
-    description: [
-      "Graduated with honors",
-      "Focus on distributed systems and algorithms",
-    ],
+    description: ["Graduated with honors"],
     type: "education",
   },
 ];

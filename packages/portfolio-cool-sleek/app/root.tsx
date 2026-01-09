@@ -42,38 +42,22 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: { error: unknown }) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
-  let stack: string | undefined;
+  let message = "404";
+  let details = "Page not found.";
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details = error.status === 404
-      ? "Page not found. The requested page doesn't exist."
-      : error.statusText || details;
+    message = String(error.status);
+    details = error.statusText || details;
   } else if (error instanceof Error) {
+    message = "Error";
     details = error.message;
-    stack = error.stack;
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
-      <div className="terminal-window max-w-xl w-full">
-        <div className="terminal-header">
-          <div className="terminal-dot bg-red-500" />
-          <div className="terminal-dot bg-yellow-500" />
-          <div className="terminal-dot bg-green-500" />
-          <span className="ml-2 text-[--color-text-muted] text-sm">error.sh</span>
-        </div>
-        <div className="terminal-body">
-          <p className="prompt text-2xl font-bold mb-4">{message}</p>
-          <p className="text-[--color-text-muted] mb-4">{details}</p>
-          {stack && (
-            <pre className="text-xs text-[--color-text-dim] overflow-auto p-4 bg-[--color-bg] rounded">
-              {stack}
-            </pre>
-          )}
-        </div>
+    <div className="min-h-[60vh] flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-6xl font-bold gradient-text mb-4">{message}</h1>
+        <p className="text-[--color-text-muted]">{details}</p>
       </div>
     </div>
   );
