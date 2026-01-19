@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useTheme } from "./ThemeProvider";
 
 export function ReactiveGrid() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
   const animationRef = useRef<number>();
+  const { theme } = useTheme();
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -51,17 +53,19 @@ export function ReactiveGrid() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           let radius = baseRadius;
-          let alpha = 0.15;
+          const baseAlpha = theme === "light" ? 0.08 : 0.15;
+          let alpha = baseAlpha;
 
           if (distance < influenceRadius) {
             const factor = 1 - distance / influenceRadius;
             const easedFactor = factor * factor;
             radius = baseRadius + (maxRadius - baseRadius) * easedFactor;
-            alpha = 0.15 + 0.6 * easedFactor;
+            alpha = baseAlpha + (theme === "light" ? 0.25 : 0.6) * easedFactor;
           }
 
           const size = radius * 2;
-          ctx.strokeStyle = `rgba(60, 56, 54, ${alpha})`;
+          const color = theme === "light" ? "180, 175, 170" : "60, 56, 54";
+          ctx.strokeStyle = `rgba(${color}, ${alpha})`;
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(x - size, y);
@@ -85,7 +89,7 @@ export function ReactiveGrid() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas
