@@ -919,6 +919,16 @@
   color: var(--color-accent);
 }
 
+/* Table of Contents sidebar */
+.toc-sidebar {
+  font-size: 0.875rem;
+}
+
+.toc-sidebar a {
+  display: block;
+  transition: all 0.15s ease;
+}
+
 /* Page transitions */
 @view-transition {
   navigation: auto;

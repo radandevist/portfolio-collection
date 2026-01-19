@@ -38,43 +38,52 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
   const Component = useMemo(() => getMDXComponent(post.code), [post.code]);
 
   return (
-    <div className="mx-auto max-w-2xl px-6 py-16">
-      <FadeIn>
-        <Link
-          to="/blog"
-          className="mb-8 inline-block text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
-        >
-          ← Back to blog
-        </Link>
-      </FadeIn>
-
-      <article>
+    <div className="relative">
+      {/* Main content - aligned with header */}
+      <div className="mx-auto max-w-2xl px-6 py-16">
         <FadeIn>
-          <header className="mb-12">
-            <h1 className="mb-4 text-3xl font-medium text-[var(--color-foreground)]">
-              {post.title}
-            </h1>
-            <time
-              dateTime={post.date}
-              className="text-sm text-[var(--color-muted)]"
-            >
-              {formatDate(post.date)}
-            </time>
-          </header>
+          <Link
+            to="/blog"
+            className="mb-8 inline-block text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
+          >
+            ← Back to blog
+          </Link>
         </FadeIn>
 
-        <FadeIn delay={100}>
+        <article>
+          <FadeIn>
+            <header className="mb-12">
+              <h1 className="mb-4 text-3xl font-medium text-[var(--color-foreground)]">
+                {post.title}
+              </h1>
+              <time
+                dateTime={post.date}
+                className="text-sm text-[var(--color-muted)]"
+              >
+                {formatDate(post.date)}
+              </time>
+            </header>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <div className="prose">
+              <Component />
+            </div>
+          </FadeIn>
+
+          <CodeBlockEnhancer />
+
+          {/* Spacer to allow scrolling to last heading */}
+          <div className="h-[80vh]" aria-hidden="true" />
+        </article>
+      </div>
+
+      {/* Sidebar TOC - positioned to the right of the main content */}
+      <aside className="hidden xl:block fixed top-24 left-[calc(50%+21rem+2rem)] w-52">
+        <FadeIn delay={200}>
           <TableOfContents headings={post.headings} />
         </FadeIn>
-
-        <FadeIn delay={200}>
-          <div className="prose">
-            <Component />
-          </div>
-        </FadeIn>
-
-        <CodeBlockEnhancer />
-      </article>
+      </aside>
     </div>
   );
 }

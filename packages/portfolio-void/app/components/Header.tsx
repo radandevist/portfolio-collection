@@ -19,7 +19,7 @@ export function Header() {
             to="/"
             className="group flex items-center gap-2"
           >
-            <span className="font-mono text-xs text-[var(--color-accent)]">→</span>
+            <span className="font-mono text-lg text-[var(--color-accent)]">→</span>
             <span className="text-lg font-medium tracking-tight text-[var(--color-foreground)] transition-colors duration-150 group-hover:text-[var(--color-accent-light)]">
               radan
             </span>

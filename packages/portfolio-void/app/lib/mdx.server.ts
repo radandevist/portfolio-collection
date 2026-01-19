@@ -63,14 +63,19 @@ export async function getPost(slug: string): Promise<BlogPostWithContent | null>
     }
 
     const headings: { id: string; text: string; level: number }[] = [];
+
+    // Remove code blocks before extracting headings to avoid matching comments
+    const contentWithoutCodeBlocks = content.replace(/```[\s\S]*?```/g, "");
     const headingRegex = /^(#{1,3})\s+(.+)$/gm;
     let match;
 
-    while ((match = headingRegex.exec(content)) !== null) {
+    while ((match = headingRegex.exec(contentWithoutCodeBlocks)) !== null) {
       const level = match[1].length;
       const text = match[2].trim();
+      // Match rehype-slug behavior: remove apostrophes, then replace other non-alphanumeric with hyphens
       const id = text
         .toLowerCase()
+        .replace(/[']/g, "")
         .replace(/[^a-z0-9]+/g, "-")
         .replace(/(^-|-$)/g, "");
       headings.push({ id, text, level });
