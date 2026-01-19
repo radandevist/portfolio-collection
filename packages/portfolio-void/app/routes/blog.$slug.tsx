@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState, useRef } from "react";
 import { Link, data } from "react-router";
 import type { Route } from "./+types/blog.$slug";
 import { getMDXComponent } from "mdx-bundler/client";
@@ -30,6 +30,62 @@ export async function loader({ params }: Route.LoaderArgs) {
   }
 
   return { post };
+}
+
+function ArticleSpacer({ headings }: { headings: { id: string }[] }) {
+  const [spacerHeight, setSpacerHeight] = useState(0);
+  const spacerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const calculateSpacer = () => {
+      if (headings.length === 0) {
+        setSpacerHeight(0);
+        return;
+      }
+
+      // Find the last heading element
+      const lastHeadingId = headings[headings.length - 1].id;
+      const lastHeading = document.getElementById(lastHeadingId);
+
+      if (!lastHeading || !spacerRef.current) {
+        setSpacerHeight(0);
+        return;
+      }
+
+      const headerOffset = 76; // Same as TOC scroll offset
+      const viewportHeight = window.innerHeight;
+      const lastHeadingTop = lastHeading.getBoundingClientRect().top + window.scrollY;
+      const articleEnd = spacerRef.current.getBoundingClientRect().top + window.scrollY;
+
+      // Content below the last heading (before spacer)
+      const contentBelowLastHeading = articleEnd - lastHeadingTop;
+
+      // Minimum space needed for last heading to scroll to top with footer visible
+      const minSpaceNeeded = viewportHeight - headerOffset;
+
+      // Calculate needed spacer height
+      const neededHeight = Math.max(0, minSpaceNeeded - contentBelowLastHeading);
+
+      setSpacerHeight(neededHeight);
+    };
+
+    // Calculate after content is rendered
+    const timer = setTimeout(calculateSpacer, 100);
+    window.addEventListener("resize", calculateSpacer);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", calculateSpacer);
+    };
+  }, [headings]);
+
+  return (
+    <div
+      ref={spacerRef}
+      style={{ height: spacerHeight }}
+      aria-hidden="true"
+    />
+  );
 }
 
 export default function BlogPost({ loaderData }: Route.ComponentProps) {
@@ -73,8 +129,8 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
 
           <CodeBlockEnhancer />
 
-          {/* Spacer to allow scrolling to last heading */}
-          <div className="h-[80vh]" aria-hidden="true" />
+          {/* Dynamic spacer to allow scrolling to last heading */}
+          <ArticleSpacer headings={post.headings} />
         </article>
       </div>
 
