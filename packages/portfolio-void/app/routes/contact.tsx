@@ -21,37 +21,38 @@ const links = [
 
 export default function Contact() {
   return (
-    <div className="mx-auto max-w-2xl px-6 py-16">
+    <div className="mx-auto max-w-2xl px-6 py-20">
       <FadeIn>
-        <h1 className="mb-4 text-3xl font-medium text-[var(--color-foreground)]">
+        <h1 className="mb-4 text-3xl font-medium tracking-tight text-[var(--color-foreground)]">
           Contact
         </h1>
-        <p className="mb-12 text-[var(--color-muted)]">
+        <p className="mb-16 text-[var(--color-muted)]">
           Let's connect.
         </p>
       </FadeIn>
 
-      <FadeIn delay={100}>
-        <div className="space-y-6">
-          {links.map((link) => (
+      <div className="space-y-8">
+        {links.map((link, index) => (
+          <FadeIn key={link.label} delay={100 + index * 100}>
             <a
-              key={link.label}
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className="group block"
+              className="group item-hover block"
             >
-              <div className="text-sm text-[var(--color-muted)]">{link.label}</div>
-              <div className="text-lg text-[var(--color-foreground)] transition-colors group-hover:text-[var(--color-accent)]">
+              <div className="text-sm text-[var(--color-muted)] transition-colors duration-300 group-hover:text-[var(--color-muted-light)]">
+                {link.label}
+              </div>
+              <div className="text-xl font-medium text-[var(--color-foreground)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:tracking-wide">
                 {link.description}
               </div>
             </a>
-          ))}
-        </div>
-      </FadeIn>
+          </FadeIn>
+        ))}
+      </div>
 
-      <FadeIn delay={200}>
-        <p className="mt-16 text-[var(--color-muted)]">
+      <FadeIn delay={300}>
+        <p className="mt-20 text-[var(--color-muted)]">
           Open to interesting projects and opportunities.
         </p>
       </FadeIn>

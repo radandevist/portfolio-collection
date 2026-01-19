@@ -10,11 +10,12 @@ export function Header() {
   const location = useLocation();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[var(--color-background)]/80 backdrop-blur-sm">
-      <nav className="mx-auto flex max-w-2xl items-center justify-between px-6 py-6">
+    <header className="sticky top-0 z-50 w-full">
+      <div className="absolute inset-0 bg-[var(--color-background)]/80 backdrop-blur-md" />
+      <nav className="relative mx-auto flex max-w-2xl items-center justify-between px-6 py-5">
         <Link
           to="/"
-          className="text-lg font-medium text-[var(--color-foreground)] transition-opacity hover:opacity-70"
+          className="link-glow text-lg font-medium tracking-tight text-[var(--color-foreground)]"
         >
           radan
         </Link>
@@ -26,13 +27,21 @@ export function Header() {
               <li key={item.href}>
                 <Link
                   to={item.href}
-                  className={`text-sm transition-colors ${
+                  className={`relative text-sm transition-colors duration-300 ${
                     isActive
                       ? "text-[var(--color-foreground)]"
                       : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
                   }`}
                 >
                   {item.label}
+                  {isActive && (
+                    <span
+                      className="absolute -bottom-1 left-0 h-px w-full bg-[var(--color-accent)]"
+                      style={{
+                        boxShadow: "0 0 8px var(--color-accent-glow)",
+                      }}
+                    />
+                  )}
                 </Link>
               </li>
             );
