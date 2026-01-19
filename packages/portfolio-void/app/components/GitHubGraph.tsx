@@ -59,18 +59,18 @@ export function GitHubGraph() {
   }, [contributions]);
 
   return (
-    <div className="hatched-box mx-auto w-fit p-5">
-      <div className="mb-4 flex items-center justify-between">
-        <span className="font-mono text-xs text-[var(--color-muted)]">
+    <div className="hatched-box mx-auto p-5 max-w-full min-[789px]:w-fit">
+      <div className="mb-4 flex items-center justify-between gap-4">
+        <span className="font-mono text-xs text-[var(--color-muted)] whitespace-nowrap">
           {totalContributions} contributions
         </span>
-        <span className="font-mono text-xs text-[var(--color-muted)]">
+        <span className="font-mono text-xs text-[var(--color-muted)] whitespace-nowrap">
           last year
         </span>
       </div>
 
-      <div>
-        <div className="flex gap-[3px]">
+      <div className="overflow-x-auto pb-1">
+        <div className="flex gap-[3px] w-fit">
           {contributions.map((week, weekIndex) => (
             <div key={weekIndex} className="flex flex-col gap-[3px]">
               {week.map((day, dayIndex) => (

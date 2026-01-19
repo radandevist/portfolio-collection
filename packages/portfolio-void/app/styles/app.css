@@ -36,6 +36,11 @@
     color: var(--color-muted-light);
     scroll-behavior: smooth;
     overflow-y: scroll;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  html * {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -199,6 +204,7 @@
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0.5;
+    pointer-events: none;
   }
 
   /* Hatched divider line */
@@ -245,6 +251,37 @@
 
   .link-glow:hover {
     color: var(--color-accent-light);
+  }
+
+  /* Hero ambient glow */
+  .hero-glow {
+    position: relative;
+  }
+
+  .hero-glow::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+    opacity: 0.4;
+    filter: blur(60px);
+    pointer-events: none;
+    animation: pulseGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
   }
 
   /* Hero title with shimmer */
@@ -322,6 +359,12 @@
     height: 10px;
     border-radius: 2px;
     background-color: var(--color-border);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .contribution-cell:hover {
+    transform: scale(1.5);
+    box-shadow: 0 0 8px var(--color-accent-glow);
   }
 
   .contribution-cell[data-level="1"] {

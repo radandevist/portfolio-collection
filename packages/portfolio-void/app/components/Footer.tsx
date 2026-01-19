@@ -41,11 +41,19 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-[var(--color-border)]">
+    <footer className="mt-auto">
+      <div className="mx-auto max-w-2xl px-6">
+        <div className="hatched-divider" />
+      </div>
       <div className="mx-auto flex max-w-2xl items-center justify-between px-6 py-8">
-        <p className="text-sm text-[var(--color-muted)]">
-          © {currentYear} radan
-        </p>
+        <div>
+          <p className="text-sm text-[var(--color-muted)]">
+            © {currentYear} radan
+          </p>
+          <p className="mt-1 font-mono text-xs text-[var(--color-muted)]/60">
+            crafted with care
+          </p>
+        </div>
 
         <div className="flex items-center gap-5">
           {socialLinks.map((link) => (

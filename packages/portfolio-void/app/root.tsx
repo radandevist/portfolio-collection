@@ -52,6 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     <html lang="en">
       <head>
         <Meta />
+        <ThemeScript />
         <Links />
         <ConsoleEasterEgg />
       </head>
@@ -72,6 +73,18 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+}
+
+function ThemeScript() {
+  const script = `
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = stored || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  `;
+  return <script dangerouslySetInnerHTML={{ __html: script }} />;
 }
 
 function ConsoleEasterEgg() {

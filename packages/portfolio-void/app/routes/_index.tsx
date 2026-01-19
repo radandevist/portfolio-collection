@@ -68,7 +68,7 @@ export default function Index() {
       </div>
 
       {/* GitHub Activity - Full Width Section */}
-      <section className="mx-auto max-w-4xl px-6 pb-16">
+      <section className="mx-auto max-w-4xl overflow-hidden px-6 pb-16">
         <FadeIn delay={0}>
           <GitHubGraph />
         </FadeIn>
