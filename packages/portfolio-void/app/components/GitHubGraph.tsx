@@ -5,18 +5,22 @@ interface ContributionDay {
   date: string;
 }
 
+// Seeded random for consistent SSR/client results
+function seededRandom(seed: number): number {
+  const x = Math.sin(seed) * 10000;
+  return x - Math.floor(x);
+}
+
 function generateMockContributions(): ContributionDay[][] {
   const weeks: ContributionDay[][] = [];
-  const today = new Date();
 
-  for (let w = 19; w >= 0; w--) {
+  for (let w = 52; w >= 0; w--) {
     const week: ContributionDay[] = [];
     for (let d = 0; d < 7; d++) {
-      const date = new Date(today);
-      date.setDate(date.getDate() - (w * 7 + (6 - d)));
-
       const isWeekend = d === 0 || d === 6;
-      const random = Math.random();
+      // Use week and day as seed for deterministic "random"
+      const seed = w * 7 + d + 1000;
+      const random = seededRandom(seed);
 
       let level: 0 | 1 | 2 | 3 | 4;
       if (isWeekend) {
@@ -35,7 +39,7 @@ function generateMockContributions(): ContributionDay[][] {
 
       week.push({
         level,
-        date: date.toISOString().split("T")[0],
+        date: "",
       });
     }
     weeks.push(week);
@@ -55,17 +59,17 @@ export function GitHubGraph() {
   }, [contributions]);
 
   return (
-    <div className="border border-[var(--color-border)] p-5">
+    <div className="mx-auto w-fit border border-[var(--color-border)] p-5">
       <div className="mb-4 flex items-center justify-between">
         <span className="font-mono text-xs text-[var(--color-muted)]">
           {totalContributions} contributions
         </span>
         <span className="font-mono text-xs text-[var(--color-muted)]">
-          last 20 weeks
+          last year
         </span>
       </div>
 
-      <div className="overflow-x-auto">
+      <div>
         <div className="flex gap-[3px]">
           {contributions.map((week, weekIndex) => (
             <div key={weekIndex} className="flex flex-col gap-[3px]">
@@ -74,7 +78,6 @@ export function GitHubGraph() {
                   key={`${weekIndex}-${dayIndex}`}
                   className="contribution-cell"
                   data-level={day.level}
-                  title={`${day.date}`}
                 />
               ))}
             </div>

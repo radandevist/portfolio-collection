@@ -22,6 +22,7 @@
     background-color: var(--color-background);
     color: var(--color-muted-light);
     scroll-behavior: smooth;
+    overflow-y: scroll;
   }
 
   @media (prefers-reduced-motion: reduce) {

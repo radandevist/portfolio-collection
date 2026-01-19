@@ -13,7 +13,9 @@
       "Bash(pnpm install:*)",
       "Bash(pnpm approve-builds:*)",
       "Bash(pnpm build:*)",
-      "Bash(pnpm typecheck:*)"
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm dev)",
+      "Bash(timeout:*)"
     ]
   }
 }
