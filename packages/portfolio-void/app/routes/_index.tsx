@@ -57,7 +57,7 @@ export default function Index() {
               </Link>
               <Link
                 to="/contact"
-                className="link-glow text-[var(--color-muted)]"
+                className="link-hover text-[var(--color-muted)]"
               >
                 Get in touch
               </Link>
