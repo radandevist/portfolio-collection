@@ -509,6 +509,12 @@
     max-width: 65ch;
   }
 
+  .prose h1,
+  .prose h2,
+  .prose h3 {
+    scroll-margin-top: 76px;
+  }
+
   .prose h1 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
