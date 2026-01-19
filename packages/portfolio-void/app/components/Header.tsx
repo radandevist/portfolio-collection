@@ -12,7 +12,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="absolute inset-0 bg-[var(--color-background)]/90 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-[var(--color-background)]/60 backdrop-blur-lg" />
       <nav className="relative mx-auto flex max-w-2xl items-center justify-between px-6 py-4">
         <Link
           to="/"
