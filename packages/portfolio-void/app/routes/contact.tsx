@@ -14,10 +14,28 @@ const links = [
     description: "Best way to reach me",
   },
   {
+    label: "WhatsApp",
+    href: "https://wa.me/1234567890",
+    value: "Chat on WhatsApp",
+    description: "Quick messages",
+  },
+  {
     label: "GitHub",
     href: "https://github.com/radan",
     value: "github.com/radan",
     description: "Check out my code",
+  },
+  {
+    label: "X",
+    href: "https://x.com/radan",
+    value: "x.com/radan",
+    description: "Follow me",
+  },
+  {
+    label: "Reddit",
+    href: "https://reddit.com/u/radan",
+    value: "u/radan",
+    description: "Join the discussion",
   },
 ];
 

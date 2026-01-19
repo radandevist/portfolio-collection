@@ -27,7 +27,6 @@ export const links: LinksFunction = () => [
   },
   { rel: "stylesheet", href: stylesheet },
   { rel: "icon", href: "/favicon.svg", type: "image/svg+xml" },
-  { rel: "alternate", type: "application/rss+xml", href: "/rss.xml", title: "radan's blog" },
 ];
 
 export const meta: MetaFunction = () => [

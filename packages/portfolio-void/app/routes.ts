@@ -6,6 +6,5 @@ export default [
   route("blog", "routes/blog._index.tsx"),
   route("blog/:slug", "routes/blog.$slug.tsx"),
   route("contact", "routes/contact.tsx"),
-  route("rss.xml", "routes/rss[.]xml.tsx"),
   route("sitemap.xml", "routes/sitemap[.]xml.tsx"),
 ] satisfies RouteConfig;

@@ -71,18 +71,6 @@ export default function BlogIndex({ loaderData }: Route.ComponentProps) {
         </div>
       )}
 
-      {/* RSS Link */}
-      <FadeIn delay={posts.length * 50 + 100}>
-        <div className="mt-16 border-t border-[var(--color-border)] pt-8">
-          <a
-            href="/rss.xml"
-            className="arrow-link font-mono text-sm text-[var(--color-muted)]"
-          >
-            <span>Subscribe via RSS</span>
-            <span className="arrow">→</span>
-          </a>
-        </div>
-      </FadeIn>
     </div>
   );
 }

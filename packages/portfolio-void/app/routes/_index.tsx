@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { Typewriter } from "~/components/Typewriter";
 import { FadeIn } from "~/components/FadeIn";
+import { GitHubGraph } from "~/components/GitHubGraph";
 
 export default function Index() {
   return (
@@ -78,6 +79,18 @@ export default function Index() {
               <div className="text-sm text-[var(--color-muted)]">Curiosity</div>
             </div>
           </div>
+        </FadeIn>
+      </section>
+
+      {/* GitHub Activity */}
+      <section className="pb-20">
+        <FadeIn delay={850}>
+          <div className="mb-4">
+            <span className="terminal-prompt font-mono text-sm text-[var(--color-muted)]">
+              ~/activity
+            </span>
+          </div>
+          <GitHubGraph />
         </FadeIn>
       </section>
     </div>
