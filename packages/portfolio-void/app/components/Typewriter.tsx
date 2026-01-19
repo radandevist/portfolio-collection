@@ -6,13 +6,12 @@ interface TypewriterProps {
   className?: string;
 }
 
-export function Typewriter({ text, delay = 100, className = "" }: TypewriterProps) {
+export function Typewriter({ text, delay = 80, className = "" }: TypewriterProps) {
   const [displayText, setDisplayText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
   const [shouldAnimate, setShouldAnimate] = useState(true);
 
   useEffect(() => {
-    // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;

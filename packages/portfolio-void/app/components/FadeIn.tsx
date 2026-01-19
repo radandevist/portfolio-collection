@@ -33,7 +33,7 @@ export function FadeIn({
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -20px 0px" }
     );
 
     if (ref.current) {
@@ -48,13 +48,13 @@ export function FadeIn({
 
     switch (direction) {
       case "up":
-        return "translate3d(0, 20px, 0)";
+        return "translate3d(0, 12px, 0)";
       case "down":
-        return "translate3d(0, -20px, 0)";
+        return "translate3d(0, -12px, 0)";
       case "left":
-        return "translate3d(20px, 0, 0)";
+        return "translate3d(12px, 0, 0)";
       case "right":
-        return "translate3d(-20px, 0, 0)";
+        return "translate3d(-12px, 0, 0)";
       case "none":
         return "translate3d(0, 0, 0)";
     }
@@ -66,10 +66,8 @@ export function FadeIn({
       style={{
         opacity: isVisible ? 1 : 0,
         transform: getTransform(),
-        filter: isVisible ? "blur(0px)" : "blur(4px)",
-        transition: `all 0.7s cubic-bezier(0.4, 0, 0.2, 1)`,
+        transition: `all 0.4s cubic-bezier(0.16, 1, 0.3, 1)`,
         transitionDelay: `${delay}ms`,
-        willChange: "opacity, transform, filter",
       }}
       className={className}
     >

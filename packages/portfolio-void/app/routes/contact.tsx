@@ -10,40 +10,52 @@ const links = [
   {
     label: "Email",
     href: "mailto:hello@radan.dev",
-    description: "hello@radan.dev",
+    value: "hello@radan.dev",
+    description: "Best way to reach me",
   },
   {
     label: "GitHub",
     href: "https://github.com/radan",
-    description: "github.com/radan",
+    value: "github.com/radan",
+    description: "Check out my code",
   },
 ];
 
 export default function Contact() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-20">
+      {/* Header */}
       <FadeIn>
-        <h1 className="mb-4 text-3xl font-medium tracking-tight text-[var(--color-foreground)]">
-          Contact
-        </h1>
-        <p className="mb-16 text-[var(--color-muted)]">
-          Let's connect.
-        </p>
+        <div className="mb-16">
+          <p className="terminal-prompt mb-2 font-mono text-sm text-[var(--color-muted)]">
+            ~/contact
+          </p>
+          <h1 className="mb-4 text-3xl font-medium tracking-tight text-[var(--color-foreground)]">
+            Get in touch
+          </h1>
+          <p className="text-[var(--color-muted-light)]">
+            Have an idea? Let's talk.
+          </p>
+        </div>
       </FadeIn>
 
-      <div className="space-y-8">
+      {/* Contact Links */}
+      <div className="space-y-6">
         {links.map((link, index) => (
-          <FadeIn key={link.label} delay={100 + index * 100}>
+          <FadeIn key={link.label} delay={50 + index * 50}>
             <a
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className="group item-hover block"
+              className="corner-brackets group block p-6 transition-colors duration-200"
             >
-              <div className="text-sm text-[var(--color-muted)] transition-colors duration-300 group-hover:text-[var(--color-muted-light)]">
+              <div className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
                 {link.label}
               </div>
-              <div className="text-xl font-medium text-[var(--color-foreground)] transition-all duration-300 group-hover:text-[var(--color-accent)] group-hover:tracking-wide">
+              <div className="mb-2 text-xl font-medium text-[var(--color-foreground)] transition-colors duration-200 group-hover:text-[var(--color-accent-light)]">
+                {link.value}
+              </div>
+              <div className="text-sm text-[var(--color-muted-light)]">
                 {link.description}
               </div>
             </a>
@@ -51,10 +63,16 @@ export default function Contact() {
         ))}
       </div>
 
-      <FadeIn delay={300}>
-        <p className="mt-20 text-[var(--color-muted)]">
-          Open to interesting projects and opportunities.
-        </p>
+      {/* Availability */}
+      <FadeIn delay={150}>
+        <div className="mt-16 border-t border-[var(--color-border)] pt-8">
+          <div className="flex items-center gap-3">
+            <span className="status-dot" />
+            <span className="text-sm text-[var(--color-muted-light)]">
+              Currently available for freelance and full-time opportunities
+            </span>
+          </div>
+        </div>
       </FadeIn>
     </div>
   );

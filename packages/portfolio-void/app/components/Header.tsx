@@ -11,37 +11,35 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full">
-      <div className="absolute inset-0 bg-[var(--color-background)]/80 backdrop-blur-md" />
-      <nav className="relative mx-auto flex max-w-2xl items-center justify-between px-6 py-5">
+      <div className="absolute inset-0 bg-[var(--color-background)]/90 backdrop-blur-md" />
+      <nav className="relative mx-auto flex max-w-2xl items-center justify-between px-6 py-4">
         <Link
           to="/"
-          className="link-glow text-lg font-medium tracking-tight text-[var(--color-foreground)]"
+          className="group flex items-center gap-2"
         >
-          radan
+          <span className="font-mono text-xs text-[var(--color-accent)]">→</span>
+          <span className="text-lg font-medium tracking-tight text-[var(--color-foreground)] transition-colors duration-150 group-hover:text-[var(--color-accent-light)]">
+            radan
+          </span>
         </Link>
 
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-6">
           {navItems.map((item) => {
             const isActive = location.pathname.startsWith(item.href);
             return (
               <li key={item.href}>
                 <Link
                   to={item.href}
-                  className={`relative text-sm transition-colors duration-300 ${
+                  className={`relative font-mono text-sm transition-colors duration-150 ${
                     isActive
                       ? "text-[var(--color-foreground)]"
                       : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
                   }`}
                 >
-                  {item.label}
                   {isActive && (
-                    <span
-                      className="absolute -bottom-1 left-0 h-px w-full bg-[var(--color-accent)]"
-                      style={{
-                        boxShadow: "0 0 8px var(--color-accent-glow)",
-                      }}
-                    />
+                    <span className="absolute -left-3 text-[var(--color-accent)]">/</span>
                   )}
+                  {item.label}
                 </Link>
               </li>
             );

@@ -12,19 +12,26 @@ export default function Projects() {
 
   return (
     <div className="mx-auto max-w-2xl px-6 py-20">
+      {/* Header */}
       <FadeIn>
-        <h1 className="mb-4 text-3xl font-medium tracking-tight text-[var(--color-foreground)]">
-          Projects
-        </h1>
-        <p className="mb-16 text-[var(--color-muted)]">
-          A selection of things I've built.
-        </p>
+        <div className="mb-16">
+          <p className="terminal-prompt mb-2 font-mono text-sm text-[var(--color-muted)]">
+            ~/projects
+          </p>
+          <h1 className="mb-4 text-3xl font-medium tracking-tight text-[var(--color-foreground)]">
+            Projects
+          </h1>
+          <p className="text-[var(--color-muted-light)]">
+            Things I've built and shipped.
+          </p>
+        </div>
       </FadeIn>
 
-      <div className="space-y-16">
+      {/* Projects List */}
+      <div className="space-y-12">
         {projects.map((project, index) => (
-          <FadeIn key={project.slug} delay={100 + index * 100}>
-            <ProjectItem project={project} />
+          <FadeIn key={project.slug} delay={50 + index * 50}>
+            <ProjectItem project={project} index={index} />
           </FadeIn>
         ))}
       </div>
@@ -32,34 +39,43 @@ export default function Projects() {
   );
 }
 
-function ProjectItem({ project }: { project: Project }) {
+function ProjectItem({ project, index }: { project: Project; index: number }) {
   return (
-    <article className="group item-hover">
+    <article className="item-card group py-1">
+      {/* Project Number */}
+      <div className="mb-3 font-mono text-xs text-[var(--color-muted)]">
+        {String(index + 1).padStart(2, "0")}
+      </div>
+
+      {/* Title Row */}
       <div className="mb-3 flex items-baseline justify-between gap-4">
-        <h2 className="text-xl font-medium text-[var(--color-foreground)] transition-colors duration-300 group-hover:text-[var(--color-accent)]">
+        <h2 className="text-xl font-medium text-[var(--color-foreground)] transition-colors duration-200 group-hover:text-[var(--color-accent-light)]">
           {project.title}
         </h2>
-        <span className="shrink-0 text-sm text-[var(--color-muted)]">
+        <span className="shrink-0 font-mono text-sm text-[var(--color-muted)]">
           {project.year}
         </span>
       </div>
 
+      {/* Context */}
       {project.context && (
         <p className="mb-3 text-sm text-[var(--color-muted)]">
           {project.context}
         </p>
       )}
 
+      {/* Description */}
       <p className="mb-5 leading-relaxed text-[var(--color-muted-light)]">
         {project.description}
       </p>
 
+      {/* Tech & Links */}
       <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-2">
           {project.tech.map((t) => (
             <span
               key={t}
-              className="text-sm text-[var(--color-muted)] transition-colors duration-300 group-hover:text-[var(--color-muted-light)]"
+              className="font-mono text-xs text-[var(--color-muted)] transition-colors duration-200 group-hover:text-[var(--color-muted-light)]"
             >
               {t}
             </span>
@@ -68,16 +84,17 @@ function ProjectItem({ project }: { project: Project }) {
 
         {(project.links.demo || project.links.github) && (
           <>
-            <span className="text-[var(--color-border)]">·</span>
+            <span className="text-[var(--color-border-light)]">/</span>
             <div className="flex gap-4">
               {project.links.demo && (
                 <a
                   href={project.links.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-hover text-sm text-[var(--color-accent)]"
+                  className="arrow-link text-sm text-[var(--color-accent)]"
                 >
-                  Demo
+                  <span>Demo</span>
+                  <span className="arrow text-xs">↗</span>
                 </a>
               )}
               {project.links.github && (
@@ -85,9 +102,10 @@ function ProjectItem({ project }: { project: Project }) {
                   href={project.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="link-hover text-sm text-[var(--color-accent)]"
+                  className="arrow-link text-sm text-[var(--color-accent)]"
                 >
-                  GitHub
+                  <span>Code</span>
+                  <span className="arrow text-xs">↗</span>
                 </a>
               )}
             </div>
