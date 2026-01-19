@@ -48,7 +48,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-2xl items-center justify-between px-6 py-8">
         <div>
           <p className="text-sm text-[var(--color-muted)]">
-            © {currentYear} radan
+            (c) {currentYear} radan
           </p>
           <p className="mt-1 font-mono text-xs text-[var(--color-muted)]/60">
             crafted with care

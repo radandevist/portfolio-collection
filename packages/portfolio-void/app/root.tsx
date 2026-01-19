@@ -36,20 +36,20 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = () => [
   { charSet: "utf-8" },
   { name: "viewport", content: "width=device-width, initial-scale=1" },
-  { title: "radan — Software developer" },
+  { title: "radan - Software developer" },
   { name: "description", content: "Software developer crafting elegant solutions." },
-  { property: "og:title", content: "radan — Software developer" },
+  { property: "og:title", content: "radan - Software developer" },
   { property: "og:description", content: "Software developer crafting elegant solutions." },
   { property: "og:type", content: "website" },
   { name: "twitter:card", content: "summary" },
-  { name: "twitter:title", content: "radan — Software developer" },
+  { name: "twitter:title", content: "radan - Software developer" },
   { name: "twitter:description", content: "Software developer crafting elegant solutions." },
   { name: "theme-color", content: "#0c0a09" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <Meta />
         <ThemeScript />
@@ -124,9 +124,12 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
       <p className="mb-8 text-lg text-[var(--color-muted)]">{message}</p>
       <a
         href="/"
-        className="text-[var(--color-accent)] transition-opacity hover:opacity-80"
+        className="inline-flex items-center gap-2 text-[var(--color-accent)] transition-opacity hover:opacity-80"
       >
-        ← Back home
+        <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back home
       </a>
     </div>
   );

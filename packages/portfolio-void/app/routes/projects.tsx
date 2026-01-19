@@ -3,7 +3,7 @@ import { FadeIn } from "~/components/FadeIn";
 import { getAllProjects, type Project } from "~/lib/projects";
 
 export const meta: MetaFunction = () => [
-  { title: "Projects — radan" },
+  { title: "Projects - radan" },
   { name: "description", content: "Selected projects and work by radan." },
 ];
 
@@ -94,7 +94,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
                   className="arrow-link text-sm text-[var(--color-accent)]"
                 >
                   <span>Demo</span>
-                  <span className="arrow text-xs">↗</span>
+                  <svg className="arrow w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                 </a>
               )}
               {project.links.github && (
@@ -105,7 +105,7 @@ function ProjectItem({ project, index }: { project: Project; index: number }) {
                   className="arrow-link text-sm text-[var(--color-accent)]"
                 >
                   <span>Code</span>
-                  <span className="arrow text-xs">↗</span>
+                  <svg className="arrow w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
                 </a>
               )}
             </div>

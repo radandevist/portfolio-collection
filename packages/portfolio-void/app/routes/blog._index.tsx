@@ -6,7 +6,7 @@ import { getAllPosts } from "~/lib/mdx.server";
 import { formatDate } from "~/lib/utils";
 
 export const meta: MetaFunction = () => [
-  { title: "Blog — radan" },
+  { title: "Blog - radan" },
   { name: "description", content: "Thoughts on software development and technology." },
 ];
 

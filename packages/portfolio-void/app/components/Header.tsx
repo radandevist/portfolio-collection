@@ -19,7 +19,7 @@ export function Header() {
             to="/"
             className="group flex items-center gap-2"
           >
-            <span className="font-mono text-lg text-[var(--color-accent)]">→</span>
+            <svg className="w-4 h-4 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             <span className="text-lg font-medium tracking-tight text-[var(--color-foreground)] transition-colors duration-150 group-hover:text-[var(--color-accent-light)]">
               radan
             </span>

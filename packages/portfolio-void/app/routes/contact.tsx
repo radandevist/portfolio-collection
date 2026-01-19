@@ -2,7 +2,7 @@ import type { MetaFunction } from "react-router";
 import { FadeIn } from "~/components/FadeIn";
 
 export const meta: MetaFunction = () => [
-  { title: "Contact — radan" },
+  { title: "Contact - radan" },
   { name: "description", content: "Get in touch with radan." },
 ];
 

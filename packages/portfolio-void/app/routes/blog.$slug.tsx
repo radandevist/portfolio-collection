@@ -10,10 +10,10 @@ import { CodeBlockEnhancer } from "~/components/CodeBlockEnhancer";
 
 export function meta({ data }: Route.MetaArgs) {
   if (!data) {
-    return [{ title: "Post not found — radan" }];
+    return [{ title: "Post not found - radan" }];
   }
   return [
-    { title: `${data.post.title} — radan` },
+    { title: `${data.post.title} - radan` },
     { name: "description", content: data.post.description },
     { property: "og:title", content: data.post.title },
     { property: "og:description", content: data.post.description },
@@ -100,9 +100,12 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
         <FadeIn>
           <Link
             to="/blog"
-            className="mb-8 inline-block text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
+            className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
           >
-            ← Back to blog
+            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to blog
           </Link>
         </FadeIn>
 

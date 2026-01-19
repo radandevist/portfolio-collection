@@ -48,7 +48,9 @@ export default function Index() {
                 className="arrow-link link-hover text-[var(--color-foreground)]"
               >
                 <span>View projects</span>
-                <span className="arrow">→</span>
+                <svg className="arrow w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
               </Link>
               <Link
                 to="/blog"
@@ -93,7 +95,11 @@ export default function Index() {
                 <div className="text-sm text-[var(--color-muted)]">Projects built</div>
               </div>
               <div>
-                <div className="number-highlight text-2xl font-medium">∞</div>
+                <div className="number-highlight text-2xl font-medium">
+                  <svg className="w-6 h-6 inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/>
+                  </svg>
+                </div>
                 <div className="text-sm text-[var(--color-muted)]">Curiosity</div>
               </div>
             </div>

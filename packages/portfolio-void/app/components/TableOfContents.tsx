@@ -66,20 +66,24 @@ export function TableOfContents({ headings }: TableOfContentsProps) {
             <a
               href={`#${heading.id}`}
               onClick={(e) => handleClick(e, heading.id)}
-              className={`flex items-center gap-3 text-sm py-1.5 transition-all duration-150 ${
+              className={`flex justify-center items-start gap-2 text-sm py-1.5 transition-all duration-150 ${
                 activeId === heading.id
                   ? "text-[var(--color-foreground)] font-medium"
                   : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
               }`}
             >
-              <span
-                className={`shrink-0 text-[var(--color-accent)] transition-opacity duration-150 ${
+              <svg
+                className={`inline-block shrink-0 w-3 h-3 mr-1.5 text-[var(--color-accent)] transition-opacity duration-150 ${
                   activeId === heading.id ? "opacity-100" : "opacity-0"
                 }`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                →
-              </span>
-              <span className="ml-2">{heading.text}</span>
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              <span>{heading.text}</span>
             </a>
           </li>
         ))}
