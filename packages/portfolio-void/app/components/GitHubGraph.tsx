@@ -59,7 +59,7 @@ export function GitHubGraph() {
   }, [contributions]);
 
   return (
-    <div className="mx-auto w-fit border border-[var(--color-border)] p-5">
+    <div className="hatched-box mx-auto w-fit p-5">
       <div className="mb-4 flex items-center justify-between">
         <span className="font-mono text-xs text-[var(--color-muted)]">
           {totalContributions} contributions

@@ -83,7 +83,8 @@ export default function Contact() {
 
       {/* Availability */}
       <FadeIn delay={150}>
-        <div className="mt-16 border-t border-[var(--color-border)] pt-8">
+        <div className="mt-16">
+          <div className="hatched-divider mb-8" />
           <div className="flex items-center gap-3">
             <span className="status-dot" />
             <span className="text-sm text-[var(--color-muted-light)]">

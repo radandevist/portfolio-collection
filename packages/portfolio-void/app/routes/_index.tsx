@@ -77,7 +77,8 @@ export default function Index() {
       <div className="mx-auto max-w-2xl px-6">
         <section className="pb-20">
           <FadeIn delay={0}>
-            <div className="flex gap-12 border-t border-[var(--color-border)] pt-8">
+            <div className="hatched-divider mb-8" />
+            <div className="flex gap-12">
               <div>
                 <div className="number-highlight text-2xl font-medium">3+</div>
                 <div className="text-sm text-[var(--color-muted)]">Years coding</div>

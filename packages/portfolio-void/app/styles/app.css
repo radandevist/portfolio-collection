@@ -164,6 +164,44 @@
     opacity: 0.6;
   }
 
+  /* Hatched box - full border */
+  .hatched-box {
+    position: relative;
+    background: var(--color-background);
+  }
+
+  .hatched-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--color-border-light),
+      var(--color-border-light) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0.5;
+  }
+
+  /* Hatched divider line */
+  .hatched-divider {
+    height: 4px;
+    background: repeating-linear-gradient(
+      -45deg,
+      var(--color-border-light),
+      var(--color-border-light) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+    opacity: 0.5;
+  }
+
   /* Fast sliding underline */
   .link-hover {
     position: relative;
