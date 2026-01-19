@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { Typewriter } from "~/components/Typewriter";
 import { FadeIn } from "~/components/FadeIn";
 import { GitHubGraph } from "~/components/GitHubGraph";
+import { AnimatedCounter } from "~/components/AnimatedCounter";
 
 export default function Index() {
   return (
@@ -80,11 +81,15 @@ export default function Index() {
             <div className="hatched-divider mb-8" />
             <div className="flex gap-12">
               <div>
-                <div className="number-highlight text-2xl font-medium">3+</div>
+                <div className="number-highlight text-2xl font-medium">
+                  <AnimatedCounter end={3} suffix="+" />
+                </div>
                 <div className="text-sm text-[var(--color-muted)]">Years coding</div>
               </div>
               <div>
-                <div className="number-highlight text-2xl font-medium">10+</div>
+                <div className="number-highlight text-2xl font-medium">
+                  <AnimatedCounter end={10} suffix="+" />
+                </div>
                 <div className="text-sm text-[var(--color-muted)]">Projects built</div>
               </div>
               <div>

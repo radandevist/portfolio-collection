@@ -15,7 +15,9 @@
       "Bash(pnpm build:*)",
       "Bash(pnpm typecheck:*)",
       "Bash(pnpm dev)",
-      "Bash(timeout:*)"
+      "Bash(timeout:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev)"
     ]
   }
 }

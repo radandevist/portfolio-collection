@@ -13,6 +13,8 @@ import stylesheet from "~/styles/app.css?url";
 import { Header } from "~/components/Header";
 import { Footer } from "~/components/Footer";
 import { SkipLink } from "~/components/SkipLink";
+import { ScrollProgress } from "~/components/ScrollProgress";
+import { MouseSpotlight } from "~/components/MouseSpotlight";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -52,6 +54,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <ConsoleEasterEgg />
       </head>
       <body className="flex min-h-screen flex-col">
+        <ScrollProgress />
+        <MouseSpotlight />
         <SkipLink />
         <Header />
         <main id="main-content" className="flex-1">

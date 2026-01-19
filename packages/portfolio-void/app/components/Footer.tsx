@@ -54,7 +54,7 @@ export function Footer() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--color-muted)] transition-colors hover:text-[var(--color-foreground)]"
+              className="social-link text-[var(--color-muted)]"
               aria-label={link.label}
             >
               <svg className="h-[18px] w-[18px]" viewBox="0 0 24 24" fill="currentColor">

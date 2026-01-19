@@ -235,9 +235,42 @@
     color: var(--color-accent-light);
   }
 
-  /* Hero title */
+  /* Hero title with shimmer */
   .hero-title {
     color: var(--color-foreground);
+    background: linear-gradient(
+      90deg,
+      var(--color-foreground) 0%,
+      var(--color-foreground) 40%,
+      var(--color-accent-light) 50%,
+      var(--color-foreground) 60%,
+      var(--color-foreground) 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmerText 8s ease-in-out infinite;
+  }
+
+  @keyframes shimmerText {
+    0%, 100% {
+      background-position: 100% 50%;
+    }
+    50% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* Scroll progress bar */
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
+    transform-origin: left;
+    z-index: 100;
   }
 
   /* Status badge */
@@ -331,10 +364,31 @@
 
   .item-card:hover {
     border-left-color: transparent;
+    transform: translateX(4px);
   }
 
   .item-card:hover::before {
     height: 100%;
+  }
+
+  /* Magnetic hover effect for social links */
+  .social-link {
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+  }
+
+  .social-link:hover {
+    transform: scale(1.15);
+    color: var(--color-accent-light);
+  }
+
+  /* Smooth lift effect */
+  .lift-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .lift-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(217, 119, 6, 0.08);
   }
 
   /* Section divider */
