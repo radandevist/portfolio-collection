@@ -37,7 +37,7 @@ export function Header() {
                 <li key={item.href}>
                   <Link
                     to={item.href}
-                    className={`relative font-mono text-sm transition-colors duration-150 ${
+                    className={`nav-link relative font-mono text-sm transition-colors duration-150 ${
                       isActive
                         ? "text-[var(--color-foreground)]"
                         : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
