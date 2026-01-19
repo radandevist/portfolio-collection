@@ -65,7 +65,7 @@ export default function Contact() {
               href={link.href}
               target={link.href.startsWith("mailto") ? undefined : "_blank"}
               rel={link.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className="corner-brackets group block p-6 transition-colors duration-200"
+              className="corner-brackets group block p-6 transition-all duration-200 hover:translate-x-1 hover:rotate-[0.5deg]"
             >
               <div className="mb-1 font-mono text-xs uppercase tracking-wider text-[var(--color-muted)]">
                 {link.label}

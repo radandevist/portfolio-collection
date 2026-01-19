@@ -109,7 +109,7 @@
 }
 
 @layer components {
-  /* Corner bracket decoration */
+  /* Corner bracket decoration with stroke animation */
   .corner-brackets {
     position: relative;
   }
@@ -118,28 +118,42 @@
   .corner-brackets::after {
     content: "";
     position: absolute;
-    width: 12px;
-    height: 12px;
-    border-color: var(--color-border-light);
-    border-style: solid;
-    transition: border-color 0.2s ease;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(var(--color-border-light), var(--color-border-light)) top left / 100% 1px no-repeat,
+                linear-gradient(var(--color-border-light), var(--color-border-light)) top left / 1px 100% no-repeat;
+    transition: background-size 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .corner-brackets::before {
     top: 0;
     left: 0;
-    border-width: 1px 0 0 1px;
   }
 
   .corner-brackets::after {
     bottom: 0;
     right: 0;
-    border-width: 0 1px 1px 0;
+    transform: rotate(180deg);
   }
 
   .corner-brackets:hover::before,
   .corner-brackets:hover::after {
-    border-color: var(--color-accent);
+    background: linear-gradient(var(--color-accent), var(--color-accent)) top left / 100% 1px no-repeat,
+                linear-gradient(var(--color-accent), var(--color-accent)) top left / 1px 100% no-repeat;
+    background-size: 100% 1px, 1px 100%;
+    animation: strokeDraw 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes strokeDraw {
+    0% {
+      background-size: 0% 1px, 1px 0%;
+    }
+    50% {
+      background-size: 100% 1px, 1px 0%;
+    }
+    100% {
+      background-size: 100% 1px, 1px 100%;
+    }
   }
 
   /* Hatched border pattern */
