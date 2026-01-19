@@ -6,6 +6,7 @@ import { getPost } from "~/lib/mdx.server";
 import { formatDate } from "~/lib/utils";
 import { FadeIn } from "~/components/FadeIn";
 import { TableOfContents } from "~/components/TableOfContents";
+import { CodeBlockEnhancer } from "~/components/CodeBlockEnhancer";
 
 export function meta({ data }: Route.MetaArgs) {
   if (!data) {
@@ -71,6 +72,8 @@ export default function BlogPost({ loaderData }: Route.ComponentProps) {
             <Component />
           </div>
         </FadeIn>
+
+        <CodeBlockEnhancer />
       </article>
     </div>
   );
