@@ -21,7 +21,7 @@ export default function Index() {
           {/* Main Title */}
           <FadeIn delay={0}>
             <h1 className="hero-title mb-4 text-5xl font-medium tracking-tight sm:text-6xl md:text-7xl">
-              <Typewriter text="radan" delay={80} />
+              <Typewriter text="I am Radan" delay={80} />
             </h1>
           </FadeIn>
 
