@@ -41,7 +41,7 @@ export const meta: MetaFunction = () => [
   { name: "twitter:card", content: "summary" },
   { name: "twitter:title", content: "radan — Software developer" },
   { name: "twitter:description", content: "Software developer crafting elegant solutions." },
-  { name: "theme-color", content: "#09090b" },
+  { name: "theme-color", content: "#0c0a09" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -72,8 +72,8 @@ function ConsoleEasterEgg() {
       "%cHey, curious one.\\n\\n" +
       "%cSource: github.com/radan\\n" +
       "Say hi: hello@radan.dev",
-      "color: #10b981; font-size: 16px; font-weight: bold;",
-      "color: #a1a1aa; font-size: 14px;"
+      "color: #f59e0b; font-size: 16px; font-weight: bold;",
+      "color: #a8a29e; font-size: 14px;"
     );
   `;
   return <script dangerouslySetInnerHTML={{ __html: script }} />;
