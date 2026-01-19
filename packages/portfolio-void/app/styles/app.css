@@ -47,21 +47,6 @@
     position: relative;
   }
 
-  /* Dot grid pattern */
-  body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle, var(--color-border-light) 1px, transparent 1px);
-    background-size: 24px 24px;
-    opacity: 0.4;
-    pointer-events: none;
-    z-index: -2;
-  }
-
   /* Subtle warm gradient */
   body::after {
     content: "";

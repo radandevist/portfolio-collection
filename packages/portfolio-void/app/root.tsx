@@ -15,6 +15,7 @@ import { Footer } from "~/components/Footer";
 import { SkipLink } from "~/components/SkipLink";
 import { ScrollProgress } from "~/components/ScrollProgress";
 import { MouseSpotlight } from "~/components/MouseSpotlight";
+import { ReactiveGrid } from "~/components/ReactiveGrid";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -55,6 +56,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex min-h-screen flex-col">
         <ScrollProgress />
+        <ReactiveGrid />
         <MouseSpotlight />
         <SkipLink />
         <Header />
