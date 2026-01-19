@@ -4,7 +4,7 @@
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, monospace;
 
-  /* Warm palette */
+  /* Warm palette - Dark (default) */
   --color-background: #0c0a09;
   --color-foreground: #fafaf9;
   --color-muted: #78716c;
@@ -14,6 +14,19 @@
   --color-accent-glow: rgba(217, 119, 6, 0.4);
   --color-border: #1c1917;
   --color-border-light: #292524;
+}
+
+/* Light theme */
+:root[data-theme="light"] {
+  --color-background: #fafaf9;
+  --color-foreground: #1c1917;
+  --color-muted: #a8a29e;
+  --color-muted-light: #78716c;
+  --color-accent: #d97706;
+  --color-accent-light: #b45309;
+  --color-accent-glow: rgba(217, 119, 6, 0.2);
+  --color-border: #e7e5e4;
+  --color-border-light: #d6d3d1;
 }
 
 @layer base {

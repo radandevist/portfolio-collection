@@ -1,4 +1,5 @@
 import { Link, useLocation } from "react-router";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { href: "/projects", label: "projects" },
@@ -23,28 +24,31 @@ export function Header() {
           </span>
         </Link>
 
-        <ul className="flex items-center gap-6">
-          {navItems.map((item) => {
-            const isActive = location.pathname.startsWith(item.href);
-            return (
-              <li key={item.href}>
-                <Link
-                  to={item.href}
-                  className={`relative font-mono text-sm transition-colors duration-150 ${
-                    isActive
-                      ? "text-[var(--color-foreground)]"
-                      : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
-                  }`}
-                >
-                  {isActive && (
-                    <span className="absolute -left-3 text-[var(--color-accent)]">/</span>
-                  )}
-                  {item.label}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="flex items-center gap-6">
+          <ul className="flex items-center gap-6">
+            {navItems.map((item) => {
+              const isActive = location.pathname.startsWith(item.href);
+              return (
+                <li key={item.href}>
+                  <Link
+                    to={item.href}
+                    className={`relative font-mono text-sm transition-colors duration-150 ${
+                      isActive
+                        ? "text-[var(--color-foreground)]"
+                        : "text-[var(--color-muted)] hover:text-[var(--color-foreground)]"
+                    }`}
+                  >
+                    {isActive && (
+                      <span className="absolute -left-3 text-[var(--color-accent)]">/</span>
+                    )}
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <ThemeToggle />
+        </div>
       </nav>
     </header>
   );
