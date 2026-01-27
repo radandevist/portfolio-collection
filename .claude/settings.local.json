@@ -9,7 +9,15 @@
       "WebFetch(domain:gatsby-medium.vercel.app)",
       "WebSearch",
       "Bash(git ls-tree:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(pnpm install:*)",
+      "Bash(pnpm approve-builds:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm typecheck:*)",
+      "Bash(pnpm dev)",
+      "Bash(timeout:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev)"
     ]
   }
 }
